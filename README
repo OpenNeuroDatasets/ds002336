@@ -4,7 +4,7 @@ ORIGINAL PAPERS
 Mano, Marsel, Anatole Lécuyer, Elise Bannier, Lorraine Perronnet, Saman Noorzadeh, and Christian Barillot. 2017. “How to Build a Hybrid Neurofeedback Platform Combining EEG and FMRI.” Frontiers in Neuroscience 11 (140). https://doi.org/10.3389/fnins.2017.00140
 Perronnet, Lorraine, L Anatole, Marsel Mano, Elise Bannier, Maureen Clerc, Christian Barillot, Lorraine Perronnet, et al. 2017. “Unimodal Versus Bimodal EEG-FMRI Neurofeedback of a Motor Imagery Task.” Frontiers in Human Neuroscience 11 (193). https://doi.org/10.3389/fnhum.2017.00193.
 
-This dataset named XP1 can be pull together with the dataset XP2, available here : <adresse dataset XP2>.
+This dataset named XP1 can be pull together with the dataset XP2 (DOI: 10.18112/openneuro.ds002338.v1.0.0).
 Data acquisition methods have been described in Perronnet et al. (2017, Frontiers in Human Neuroscience).
 Simultaneous 64 channels EEG and fMRI during right-hand motor imagery and neurofeedback (NF) were acquired in this study (as well as in XP2). For this study, 10 subjects performed three types of NF runs (bimodal EEG-fMRI NF, unimodal EEG-NF and fMRI-NF). 
 
