@@ -1,7 +1,0 @@
-{ 
- "TaskName": "MIpost",
- "SamplingFrequency": 5000,
- "SoftwareFilters": "n/a",
- "EEGReference": "FCz",
-"PowerLineFrequency": 50
-}
