@@ -1,10 +1,13 @@
 ————————————————————————————————
 ORIGINAL PAPERS
 ————————————————————————————————
+
+Lioi, G., Cury, C., Perronnet, L., Mano, M., Bannier, E., Lécuyer, A., & Barillot, C. (2019). Simultaneous MRI-EEG during a motor imagery neurofeedback task: an open access brain imaging dataset for multi-modal data integration Authors. BioRxiv. https://doi.org/https://doi.org/10.1101/862375
+
 Mano, Marsel, Anatole Lécuyer, Elise Bannier, Lorraine Perronnet, Saman Noorzadeh, and Christian Barillot. 2017. “How to Build a Hybrid Neurofeedback Platform Combining EEG and FMRI.” Frontiers in Neuroscience 11 (140). https://doi.org/10.3389/fnins.2017.00140
 Perronnet, Lorraine, L Anatole, Marsel Mano, Elise Bannier, Maureen Clerc, Christian Barillot, Lorraine Perronnet, et al. 2017. “Unimodal Versus Bimodal EEG-FMRI Neurofeedback of a Motor Imagery Task.” Frontiers in Human Neuroscience 11 (193). https://doi.org/10.3389/fnhum.2017.00193.
 
-This dataset named XP1 can be pull together with the dataset XP2 (DOI: 10.18112/openneuro.ds002338.v1.0.0).
+This dataset named XP1 can be pull together with the dataset XP2, available here : https://openneuro.org/datasets/ds002338.
 Data acquisition methods have been described in Perronnet et al. (2017, Frontiers in Human Neuroscience).
 Simultaneous 64 channels EEG and fMRI during right-hand motor imagery and neurofeedback (NF) were acquired in this study (as well as in XP2). For this study, 10 subjects performed three types of NF runs (bimodal EEG-fMRI NF, unimodal EEG-NF and fMRI-NF). 
 
@@ -60,12 +63,19 @@ Neurofeedback scores can be found in the .mat structures in
 
 XP1/derivatives/sub-xp1*/NF_eeg/d_sub*NFeeg_scores.mat
 
-Structures names NF_eeg are composed by the following subfields:
-ID : Subject ID, for example sub-xp101
-lapC3_ERD : a 1x1280 vector of neurofeedback scores. 4 scores per secondes, for the whole session.
-eeg : a 64x80200 matrix, with the pre-processed EEG signals with the step described above, filtered between 8 and 30 Hz.
-lapC3_bandpower_8Hz_30Hz : 1x1280 vector. Bandpower of the filtered signal with a laplacian centred on C3, used to estimate the lapC3_ERD.
-lapC3_filter : 1x64 vector. Laplacian filter centred on C3 channel.
+Structures names NF_eeg are composed of the following subfields:
+
+NF_eeg
+→ .nf_laterality (NF score computed as for real-time calculation - equation (1))              
+→ .filteegpow_left (Bandpower of the filtered eeg signal in C1)
+→ .filteegpow_right (Bandpower of the filtered eeg signal in C2)
+→ .nf (vector of NF scores -4 per s- computed as in eq 3) for comparison with XP2
+→ .smoothed
+→ .eegdata (64 X 200 X 400 matrix, with the pre-processed EEG signals according to the steps described above)
+→ .method
+
+Where the subfield method contains information about the laplacian filtered used and the frequency band of interest.
+
 
 ————————————————————————————————
 BOLD fMRI DATA
@@ -108,30 +118,26 @@ For each subject and NF session, a matlab structure with BOLD-NF features can be
 
 XP1/derivatives/sub-xp1*/NF_bold/
 
-In view of BOLD-NF scores computation, fMRI data were preprocessed using AutoMRI, a software based on spm8 and with the following steps: slice-time correction, spatial realignment and coregistration with the anatomical scan, spatial smoothing with a 6 mm Gaussian kernel and normalization to the Montreal Neurological Institute template 
-For each session, a first level general linear model analysis modeling was then performed. The resulting activation maps  (voxel-wise Family-Wise error corrected at p < 0.05)  were used to define two ROIs  (9x9x3 voxels) around the maximum of activation in the ipsilesional primary motor area (M1) and supplementary motor area (SMA) respectively. 
-
-The BOLD-NF scores were calculated as the difference between percentage signal change in the two ROIs (SMA and M1) and a large deep background region (slice 3 out of 16) whose activity is not correlated with the NF task. A smoothed version of the NF scores over the precedent three volumes was also computed. 
-
-The NF_boldi structure has the  following structure
-
+For each subject and NF session, a Matlab structure with BOLD-NF features can be found in
+ 
+XP1/derivatives/sub-xp1*/NF_bold/
+ 
+In view of BOLD-NF scores computation, fMRI data were preprocessed using SPM8 and with the following steps: slice-time correction, spatial realignment and coregistration with the anatomical scan, spatial smoothing with a 6 mm Gaussian kernel and normalization to the Montreal Neurological Institute (MNI) template.
+For each session, a first level general linear model analysis was then performed. The resulting activation maps (voxel-wise Family-Wise error corrected at p < 0.05) were used to define two ROIs (9x9x3 voxels) around the maximum of activation in the left and right motor cortex. The BOLD-NF scores (fMRI laterality index) were calculated as the difference between percentage signal change in the left and right motor ROIs as for the online NF calculation. A smoothed and normalized version of the NF scores over the precedent three volumes was also computed. To allow for comparison and aggregation of the two datasets XP1 and XP2 we also computed NF scores considering the left motor cortex and a background as for online NF calculation in XP2.
+ 
+In the NF_bold folder, the Matlab files sub-xp1*_task-*_NFbold_scores.mat  have therefore the following structure :
+ 
 NF_bold
-                  → .m1 → .nf 
-                              → .smoothnf    
-                              → .roimean   (averaged BOLD signal in the ROI) 
-                              → .bgmean  (averaged BOLD signal in the background slice)
-                              → .method    
-NFscores.fmri
-                  → .sma→ .nf
-                              → .smoothnf    
-                              → .roimean   (averaged BOLD signal in the ROI) 
-                              → .bgmean  (averaged BOLD signal in the background slice)
-                              → .method    
-
-
-Where the subfield method contains information about the ROI size (.roisize), the background mask (.bgmask) and ROI mask (.roimask).
-
-More details about signal processing and NF calculation can be found in Perronnet et al. 2017 and Perronnet et al. 2018.
+→ .nf_laterality (calculated as for online NF calculation)
+→ .smoothnf_laterality
+→ .normnf_laterality
+→ .nf (calculated as for online NF calculation in XP2)
+→ .roimean_left (averaged BOLD signal in the left motor ROI)
+→ .roimean_right (averaged BOLD signal in the right motor ROI)
+→ .bgmean (averaged BOLD signal in the background slice)
+→ .method
+ 
+Where the subfield ".method" contains information about the ROI size (.roisize), the background mask (.bgmask) and ROI masks (.roimask_left,.roimask_right ). More details about signal processing and NF calculation can be found in Perronnet et al. 2017 and Perronnet et al. 2018.
 
 
 ————————————————————————————————
@@ -152,5 +158,4 @@ Defacing of MPRAGE T1 images was performed by the submitter using pydeface (http
 Following the BIDs arborescence, the functional data and relative metadata are found for each subject in the following directory
 
 XP1/sub-xp1*/anat
-
 
