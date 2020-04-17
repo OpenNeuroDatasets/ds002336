@@ -1,7 +1,0 @@
-{ 
- "TaskName": "1dNF_run-01",
- "SamplingFrequency": 5000,
- "SoftwareFilters": "n/a",
- "EEGReference": "FCz",
-"PowerLineFrequency": 50
-}
