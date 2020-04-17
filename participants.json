@@ -1,17 +1,16 @@
 {
-    "bmi": {
-        "Units": "kilograms per squared meters", 
-        "TermURL": "http://purl.bioontology.org/ontology/SNOMEDCT/60621009", 
-        "LongName": "Body mass index"
-    }, 
-    "education": {
+    "participant_id": {
+        "Description": "anonymised participant IDs of XP2 dataset"
+    },
+    "age": {
+        "Description": "age of the participant",
+        "Units": "years"
+    },
+    "sex": {
+        "Description": "sex of the participant",
         "Levels": {
-            "1": "Finished primary school", 
-            "3": "Student at university", 
-            "2": "Finished secondary school", 
-            "4": "Has degree from university"
-        }, 
-        "Description": "Education level, self-rated by participant", 
-        "LongName": "Education level"
+            "M": "male",
+            "F": "female"
+        }
     }
 }
