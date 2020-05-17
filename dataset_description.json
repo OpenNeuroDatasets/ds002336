@@ -6,7 +6,7 @@
     "Funding": [
         "This work was supported by the French Natinal Research Agency under the reference ANR-10-LABX-07-01"
     ],
-    "Name": "A multi-modal human neuroimaging dataset for data integration: simultaneous EEG and MRI acquisition during a motor imagery neurofeedback task: XP1",
+    "Name": "A multi-modal human neuroimaging dataset for data integration: simultaneous EEG and fMRI acquisition during a motor imagery neurofeedback task: XP1",
     "License": "CC0",
     "BIDSVersion": "1.2.0",
     "Authors": [
