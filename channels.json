@@ -8,6 +8,5 @@
     },
     "UNITS": {
                 "Description": "Unit of measurement of sensor"
-    },
-
+    }
 }
