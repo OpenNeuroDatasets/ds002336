@@ -1,0 +1,13 @@
+{
+    "NAME": {
+        "Description": "Electrode labels- BRAINCAP MR https://www.brainproducts.com/productdetails.php?id=10"
+               
+    }, 
+    "TYPE": {
+                "Description": "Sensor type"
+    },
+    "UNITS": {
+                "Description": "Unit of measurement of sensor"
+    },
+
+}
