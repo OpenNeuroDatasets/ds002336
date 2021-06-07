@@ -1,0 +1,23 @@
+{
+    "ReferencesAndLinks": [
+        "Perronnet, Lorraine, L Anatole, Marsel Mano, Elise Bannier, Maureen Clerc, Christian Barillot, Lorraine Perronnet, et al. 2017. \u201cUnimodal Versus Bimodal EEG-FMRI Neurofeedback of a Motor Imagery Task.\u201d Frontiers in Human Neuroscience 11 (193). https://doi.org/10.3389/fnhum.2017.00193."
+    ],
+    "DatasetDOI": "10.18112/openneuro.ds002336.v1.0.0",
+    "Funding": [
+        "This work was supported by the French Natinal Research Agency under the reference ANR-10-LABX-07-01"
+    ],
+    "Name": "An open access, multi-modal human neuroimaging dataset for data integration: simultaneous EEG and MRI acquisition during a motor imagery neurofeedback task: XP1",
+    "License": "CC0",
+    "BIDSVersion": "1.2.0",
+    "Authors": [
+        "Giulia Lioi",
+        "Claire Cury",
+        "Lorraine Perronnet",
+        "Marsel Mano",
+        "Elise Bannier",
+        "Anatole Lecuyer",
+        "Christian Barillot"
+    ],
+    "Acknowledgments": "MRI data acquisition was supported by the Neurinfo MRI research facility at the University Hospital of Rennes, which is granted by the European Union and the French Gouvernment.",
+    "HowToAcknowledge": ""
+}
